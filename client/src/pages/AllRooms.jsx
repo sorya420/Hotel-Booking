@@ -193,7 +193,7 @@ const AllRooms = () => {
         ))}
       </div>
 
-      <div className="w-80 bg-white rounded-3xl shadow-xl border border-gray-200 p-6 lg:ml-10 mb-8 sticky top-28 h-fit">
+      <div className="w-80 bg-white rounded-3xl shadow-xl border border-gray-200 p-6 lg:ml-10 mb-8 top-28 h-fit">
         <div className="flex justify-between">
           <h2 className="font-bold">Filters</h2>
 

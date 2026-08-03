@@ -1,107 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-
-// const Weather = () => {
-
-//   const [weather, setWeather] = useState(null);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-
-//     navigator.geolocation.getCurrentPosition(
-
-//       async (position) => {
-
-//         const latitude = position.coords.latitude;
-//         const longitude = position.coords.longitude;
-
-//         try {
-
-//           const response = await axios.get(
-//             `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=342e320bcc9d0a438de6abf9e54bb13c`
-//           );
-
-//           setWeather(response.data);
-
-//         } catch (error) {
-
-//           console.log(error);
-
-//         } finally {
-
-//           setLoading(false);
-
-//         }
-
-//       },
-
-//       (error) => {
-
-//         console.log(error);
-
-//         setLoading(false);
-
-//       }
-
-//     );
-
-//   }, []);
-
-//   if (loading) {
-//     return (
-//       <h2 className="text-center text-xl mt-10">
-//         Loading Weather...
-//       </h2>
-//     );
-//   }
-
-//   if (!weather) {
-//     return (
-//       <h2 className="text-center text-red-500 mt-10">
-//         Weather data not found.
-//       </h2>
-//     );
-//   }
-
-//   return (
-//     <div className="bg-white shadow-lg rounded-xl p-6 max-w-md mx-auto mt-10">
-
-//       <h2 className="text-2xl font-bold text-center mb-5">
-//         🌦️ Live Weather
-//       </h2>
-
-//       <div className="space-y-3 text-lg">
-
-//         <p>
-//           📍 <strong>City:</strong> {weather.name}
-//         </p>
-
-//         <p>
-//           🌡️ <strong>Temperature:</strong> {weather.main.temp} °C
-//         </p>
-
-//         <p>
-//           ☁️ <strong>Weather:</strong> {weather.weather[0].main}
-//         </p>
-
-//         <p>
-//           💧 <strong>Humidity:</strong> {weather.main.humidity}%
-//         </p>
-
-//         <p>
-//           💨 <strong>Wind Speed:</strong> {weather.wind.speed} m/s
-//         </p>
-
-//       </div>
-
-//     </div>
-//   );
-
-// };
-
-// export default Weather;
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -116,7 +12,7 @@ const Weather = () => {
           const { latitude, longitude } = position.coords;
 
           const res = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=342e320bcc9d0a438de6abf9e54bb13c`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=342e320bcc9d0a438de6abf9e54bb13c`,
           );
 
           setWeather(res.data);
@@ -126,7 +22,7 @@ const Weather = () => {
           setLoading(false);
         }
       },
-      () => setLoading(false)
+      () => setLoading(false),
     );
   }, []);
 
@@ -151,23 +47,14 @@ const Weather = () => {
 
   return (
     <div className="max-w-[310px] mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-600 via-sky-500 to-blue-700 shadow-2xl text-white">
-
       {/* Header */}
 
       <div className="p-5">
-
         <div className="flex justify-between items-center">
-
           <div>
+            <p className="text-xs text-cyan-100">📍 Current Location</p>
 
-            <p className="text-xs text-cyan-100">
-              📍 Current Location
-            </p>
-
-            <h2 className="text-xl font-bold">
-              {weather.name}
-            </h2>
-
+            <h2 className="text-xl font-bold">{weather.name}</h2>
           </div>
 
           <img
@@ -175,7 +62,6 @@ const Weather = () => {
             alt=""
             className="w-16 h-16"
           />
-
         </div>
 
         {/* Temperature */}
@@ -191,19 +77,14 @@ const Weather = () => {
         {/* Details */}
 
         <div className="grid grid-cols-2 gap-3 mt-5">
-
           <div className="bg-white/20 rounded-xl p-3">
             <p className="text-xs">💧 Humidity</p>
-            <h3 className="font-bold text-lg">
-              {weather.main.humidity}%
-            </h3>
+            <h3 className="font-bold text-lg">{weather.main.humidity}%</h3>
           </div>
 
           <div className="bg-white/20 rounded-xl p-3">
             <p className="text-xs">💨 Wind</p>
-            <h3 className="font-bold text-lg">
-              {weather.wind.speed} m/s
-            </h3>
+            <h3 className="font-bold text-lg">{weather.wind.speed} m/s</h3>
           </div>
 
           <div className="bg-white/20 rounded-xl p-3">
@@ -215,11 +96,8 @@ const Weather = () => {
 
           <div className="bg-white/20 rounded-xl p-3">
             <p className="text-xs">☁ Condition</p>
-            <h3 className="font-bold text-base">
-              {weather.weather[0].main}
-            </h3>
+            <h3 className="font-bold text-base">{weather.weather[0].main}</h3>
           </div>
-
         </div>
 
         {/* Footer */}
@@ -228,9 +106,7 @@ const Weather = () => {
           <span>🌍 Travixy</span>
           <span>Live Weather</span>
         </div>
-
       </div>
-
     </div>
   );
 };

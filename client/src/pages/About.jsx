@@ -98,7 +98,8 @@ text-gray-200
             journeys.
           </p>
 
-          <button onClick={() => window.location.href = "/"}
+          <button
+            onClick={() => (window.location.href = "/")}
             className="
 mt-8
 px-8
