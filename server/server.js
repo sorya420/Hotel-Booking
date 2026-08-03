@@ -6,13 +6,13 @@ import { clerkMiddleware } from "@clerk/express";
 import cabRoutes from "./Routes/cabRoutes.js";
 import emergencyRouter from "./Routes/emergencyRoutes.js";
 import bikeShopRoutes from "./Routes/bikeShopRoutes.js";
-import localBusinessRoutes from "./routes/localBusinessRoutes.js";
+import localBusinessRoutes from "./Routes/localBusinessRoutes.js";
 import clerkWebhooks from "./Controllers/clerkWebhooks.js";
 import userRouter from "./Routes/userRoutes.js";
 import hotelRouter from "./Routes/hotelRoute.js";
 import { connectClodinary } from "./configs/cloudinary.js";
 import roomRouter from "./Routes/RoomRoutes.js";
-import bookingRoutes from "./routes/bookingRoutes.js";
+import bookingRoutes from "./Routes/bookingRoutes.js";
 import chatRouter from "./Routes/chatRoutes.js";
 import paymentRouter from "./Routes/paymentRoutes.js";
 
