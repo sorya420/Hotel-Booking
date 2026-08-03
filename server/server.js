@@ -26,7 +26,7 @@ app.use(cors()); // Enable Cross-origin Resouce Sharing
 
 //Important raw body parser for clerk webhook, reguster bedore express.json
 
-app.post("api/clerk", express.raw({ type: "application/json" }), clerkWebhooks);
+app.post("/api/clerk", express.raw({ type: "application/json" }), clerkWebhooks);
 //MiddleWare
 app.use(express.json());
 app.use(clerkMiddleware());
